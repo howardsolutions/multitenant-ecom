@@ -5,6 +5,8 @@ import { cn } from '@/lib/utils';
 import { Poppins } from 'next/font/google';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { NavbarSidebar } from './navbar-sidebar';
+import { useState } from 'react';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -20,6 +22,8 @@ const navbarItems = [
 ];
 
 export function Navbar() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   return (
     <nav className='h-20 flex border-b justify-between font-medium bg-white px-6'>
       <Link href='/' className='flex items-center'>
@@ -27,6 +31,12 @@ export function Navbar() {
           Vendroad
         </span>
       </Link>
+
+      <NavbarSidebar
+        items={navbarItems}
+        open={isSidebarOpen}
+        onOpenChange={setIsSidebarOpen}
+      />
 
       <NavbarItems />
     </nav>

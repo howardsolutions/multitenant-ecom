@@ -13,7 +13,7 @@ interface NavbarItem {
   children: React.ReactNode;
 }
 
-interface Props {
+interface NavbarSidebarProps {
   items: NavbarItem[];
   open: boolean;
   onOpenChange: (open: boolean) => void;
@@ -23,7 +23,7 @@ export const NavbarSidebar = ({
   items,
   open,
   onOpenChange,
-}: Props) => {
+}: NavbarSidebarProps) => {
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent
